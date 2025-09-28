@@ -31,7 +31,7 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
     {
       name: "Bitcoin",
       icon: <Bitcoin size={16} />,
-      address: "bc1qsjwrzkcmj0sust42wlcvulxvdaw0lg9nhpdsg3",
+      address: "bc1qm5rg29zzzy7drk93278m2ntfg79l6yxlzxhn2k",
       network: "Bitcoin",
     },
   ];
@@ -40,6 +40,8 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
     ...crypto.map((c) => ({ name: c.name, icon: c.icon })),
     { name: "PayPal", icon: <CreditCard size={16} /> },
     { name: "Zelle", icon: <Wallet size={16} /> },
+    { name: "ApplePay", icon: <CreditCard size={16} /> },
+    { name: "Chime", icon: <CreditCard size={16} /> },
   ];
 
   useEffect(() => {
@@ -254,10 +256,10 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
             user_email: userEmail,
             user_message: userMessage,
             payment_proof_html: uploadedImage
-              ? `<img src="${uploadedImage}" alt="Payment Proof" style="max-width:100%; height:auto; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.15);" />`
+              ? `<img src="${uploadedImage}" alt="Payment Proof" style="max-width:100%; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.15);" />`
               : "<p style='color:#777;font-style:italic;'>No payment proof uploaded</p>",
             timestamp: new Date().toLocaleString(),
-            email: "jsmartpicks@gmail.com",
+            email: userEmail,
           },
           "d4w_xiM5cLxVo--fD"
         )
@@ -267,7 +269,7 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
               msg.id === sendingId
                 ? {
                     ...msg,
-                    text: "Thank you! Your info has been sent. We will verify and get back to you soon.",
+                    text: "✅ Thank you! Your info has been sent. We will verify and get back to you soon.",
                     sending: false,
                   }
                 : msg
@@ -275,19 +277,29 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
           );
           toast.success("Message sent!");
         })
-        .catch(() => {
+        .catch((error) => {
+          console.error("EmailJS error details:", error);
+
+          let errorMessage =
+            "❌ Failed to send your subscription. Please try again later.";
+
+          // Handle "Failed to fetch" and timeouts
+          if (
+            error?.message?.includes("Failed to fetch") ||
+            error?.message?.includes("timeout")
+          ) {
+            errorMessage =
+              "⚠️ Network error: The request timed out. Please check your internet connection, toggle airplane mode on/off, or switch to a stable network.";
+          }
           setChatMessages((prev) =>
             prev.map((msg) =>
               msg.id === sendingId
-                ? {
-                    ...msg,
-                    text: "Failed to send your subscription. Please try again later.",
-                    sending: false,
-                  }
+                ? { ...msg, text: errorMessage, sending: false }
                 : msg
             )
           );
-          toast.error("Failed to send message");
+
+          toast.error(errorMessage);
         });
 
       return;
@@ -374,12 +386,12 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
                 }`}
               >
                 {msg.text && (
-                  <p className="flex items-center gap-2">
+                  <span className="flex items-center gap-2">
                     {msg.text}{" "}
                     {msg.sending && (
                       <div className="w-4 h-4 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
                     )}
-                  </p>
+                  </span>
                 )}
 
                 {/* Spinner while uploading */}
