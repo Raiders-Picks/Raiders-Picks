@@ -35,14 +35,14 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex gap-4">
             {[
-              { icon: <DiscordIcon />, href: "https://discord.gg/eU2E6xUf" },
+              { icon: <DiscordIcon />, href: "https://discord.gg/ppa2xFmCHr" },
               {
                 icon: <Twitter size={20} />,
                 href: "https://x.com/raiderspicks",
               },
               {
                 icon: <Instagram size={20} />,
-                href: "https://www.instagram.com/raiderspicks",
+                href: "https://www.instagram.com/raiders_____picks/",
               },
             ].map(({ icon, href }, idx) => (
               <a
