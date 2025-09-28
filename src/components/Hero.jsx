@@ -51,10 +51,7 @@ const Hero = () => {
             <Button
               variant="secondary"
               onClick={() => {
-                const learnSection = document.getElementById("learn");
-                if (learnSection) {
-                  learnSection.scrollIntoView({ behavior: "smooth" });
-                }
+                window.open("https://discord.gg/ppa2xFmCHr", "_blank");
               }}
             >
               <span className="flex items-center justify-center gap-2">
