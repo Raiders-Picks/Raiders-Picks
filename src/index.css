@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Inter';
+    src: url(./assets/font/Inter_18pt-Regular.ttf);
+}
+@font-face {
+    font-family: "Poppins", sans-serif;
+    src: url(./assets/font/Poppins-Bold.ttf);
+}
+@font-face {
+  font-family: AgencyFB;
+  src: url(./assets/font/AGENCYB.TTF);
+}
+*{
+    font-family: 'Inter', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.sb-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem; /* matches rounded-xl */
+}
+
+/* SVG sits on top of the card but below content */
+.sb-card svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* the animated stroke (large dasharray to cover various card sizes) */
+.sb-card svg rect {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 0.9s linear, opacity 0.35s ease;
+  opacity: 0;
+}
+
+/* On hover we draw the stroke (runs around) */
+.sb-card:hover svg rect {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+
+/* keep inner content above the svg */
+.sb-inner {
+  position: relative;
+  z-index: 10;
+}
+
+/* small tweak so the gradient border shows nicely on small cards */
+@media (min-width: 768px) {
+  .sb-card svg rect {
+    stroke-width: 3;
+  }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+.animate-breathe {
+    animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0% {
+    opacity: 0.15;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.15;
+    transform: scale(0.95);
+  }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
