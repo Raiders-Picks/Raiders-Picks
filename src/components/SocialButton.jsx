@@ -50,7 +50,7 @@ const SocialButton = () => {
               {/* Discord Button */}
               <motion.li className="relative group" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
                 <a
-                  href="https://discord.gg/eU2E6xUf"
+                  href="https://discord.gg/ppa2xFmCHr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-[#5865F2] hover:bg-[#4752c4] rounded-2xl p-8 transition-all duration-300 h-full shadow-lg shadow-indigo-900/30"
@@ -93,7 +93,7 @@ const SocialButton = () => {
               {/* Instagram Button */}
               <motion.li className="relative group" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
                 <a
-                  href="https://www.instagram.com/j_picks07"
+                  href="https://www.instagram.com/raiders_____picks/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-gradient-to-r from-[#f97316] to-[#bf0050] hover:opacity-90 rounded-2xl p-8 transition-all duration-300 h-full shadow-lg shadow-[#f97316]/30"
