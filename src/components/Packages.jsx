@@ -132,7 +132,7 @@ const Packages = () => {
       <button
         onClick={() => handleSubscribe(pkg)}
         disabled={loading}
-        className={`mt-6 w-full py-3 rounded-lg font-bold transition-all ${
+        className={`mt-6 w-full py-3 rounded-lg font-bold transition-all cursor-pointer ${
           loading
             ? "bg-gray-500 text-gray-300 cursor-not-allowed"
             : pkg.highlight
