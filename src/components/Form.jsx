@@ -123,7 +123,7 @@ const Form = () => {
           <button
             type="submit"
             disabled={loading}
-            className="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-[#f97316] to-[#bf0050] text-white font-bold shadow-lg shadow-[#f97316]/30 hover:opacity-90 transition-all"
+            className="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-[#f97316] to-[#bf0050] text-white font-bold shadow-lg shadow-[#f97316]/30 hover:opacity-90 transition-all cursor-pointer"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
