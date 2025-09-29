@@ -85,7 +85,7 @@ const Navbar = ({ logo, links }) => {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleNavigateOrScroll(link.link)}
-                  className="flex items-center gap-2 hover:text-[#f97316] transition"
+                  className="flex items-center gap-2 hover:text-[#f97316] transition cursor-pointer"
                 >
                   {link.icon}
                   {link.name}
@@ -152,7 +152,7 @@ const Navbar = ({ logo, links }) => {
                 >
                   <button
                     onClick={() => handleNavigateOrScroll(link.link)}
-                    className="w-full text-left px-6 py-3 flex items-center gap-3 text-gray-900 hover:bg-gray-100 hover:text-[#f97316] transition"
+                    className="w-full text-left px-6 py-3 flex items-center gap-3 text-gray-900 hover:bg-gray-100 hover:text-[#f97316] transition cursor-pointer"
                   >
                     {link.icon}
                     <span>{link.name}</span>
