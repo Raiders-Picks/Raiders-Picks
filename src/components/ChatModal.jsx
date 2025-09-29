@@ -447,7 +447,7 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
                 <button
                   key={method.name}
                   onClick={() => handlePaymentSelect(method.name)}
-                  className="flex items-center gap-2 bg-[#f97316] hover:bg-[#ea580c] text-white px-3 py-1 rounded-md transition"
+                  className="flex items-center gap-2 bg-[#f97316] hover:bg-[#ea580c] text-white px-3 py-1 rounded-md transition cursor-pointer"
                 >
                   {method.icon} {method.name}
                 </button>
@@ -466,7 +466,7 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
               />
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="bg-yellow-500 hover:bg-yellow-400 text-black px-3 py-2 rounded-md font-semibold flex items-center gap-2"
+                className="bg-yellow-500 hover:bg-yellow-400 text-black px-3 py-2 rounded-md font-semibold flex items-center gap-2 cursor-pointer"
               >
                 <Upload size={18} /> Upload Proof
               </button>
@@ -489,7 +489,7 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
               />
               <button
                 onClick={sendMessage}
-                className="bg-[#f97316] hover:bg-[#ea580c] text-white px-4 py-2 rounded-md flex items-center justify-center sm:justify-start gap-1"
+                className="bg-[#f97316] hover:bg-[#ea580c] text-white px-4 py-2 rounded-md flex items-center justify-center sm:justify-start gap-1 cursor-pointer"
               >
                 <Send size={18} /> Send
               </button>
