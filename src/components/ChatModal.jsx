@@ -111,7 +111,7 @@ const ChatModal = ({ isOpen, onClose, selectedPackage }) => {
 
     const botMessage = cryptoObj
       ? `Please send your payment to the following address:`
-      : "Text Raiders Picks on Discord with a screenshot of your payment. After payment, upload proof along with your name and Discord username to gain access.";
+      : "Text Raiders Picks on Discord with a screenshot of the payment method you picked from here, so he can give you the updated information for that particular payment method for you to subscribe. After payment to Raiders Picks, please upload proof of payment along with your name and Discord username to gain automatic access to the PREMIUM PLAYS.";
 
     setChatMessages((prev) => [
       ...prev,
