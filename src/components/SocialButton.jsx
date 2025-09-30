@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Logo from "/raider-logo-transparent.png";
+import Logo from "/raider-logo.png";
 
 const SocialButton = () => {
   return (
@@ -22,7 +22,7 @@ const SocialButton = () => {
               <img
                 src={Logo}
                 alt="Raiders Picks Logo"
-                className="w-40 h-40 object-contain drop-shadow-lg"
+                className="w-40 h-40 object-contain drop-shadow-lg rounded-full"
               />
             </motion.div>
 
