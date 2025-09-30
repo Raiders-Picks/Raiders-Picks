@@ -8,7 +8,7 @@ const packages = [
   {
     title: "Monthly Premium",
     desc: "Most popular choice",
-    price: "$50",
+    price: "$55",
     features: [
       "Expert well analyzed picks",
       "AI-powered daily analysis",
