@@ -1,11 +1,10 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Mail } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import emailjs from "@emailjs/browser";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +25,7 @@ const Form = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
@@ -40,12 +39,43 @@ const Form = () => {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      toast.success(`Message sent by ${formData.name} 🎉`, { autoClose: 3000 });
-      console.log("Collected Data:", formData);
+
+    try {
+      const serviceId = "service_7l70dsr";
+      const templateId = "template_ze9ctf8";
+      const publicKey = "d4w_xiM5cLxVo--fD";
+
+      // Add formatted timestamp
+      const timestamp = new Date().toLocaleString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      });
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        date: timestamp,
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      toast.success("Message sent to Raiders Picks successfully! 🎉", {
+        autoClose: 3000,
+      });
       setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   const inputClass =
@@ -123,7 +153,7 @@ const Form = () => {
           <button
             type="submit"
             disabled={loading}
-            className="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-[#f97316] to-[#bf0050] text-white font-bold shadow-lg shadow-[#f97316]/30 hover:opacity-90 transition-all cursor-pointer"
+            className="mt-6 w-full py-3 rounded-xl bg-gradient-to-r from-[#f97316] to-[#bf0050] text-white font-bold shadow-lg shadow-[#f97316]/30 hover:opacity-90 transition-all"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
