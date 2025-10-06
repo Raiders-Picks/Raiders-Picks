@@ -36,10 +36,10 @@ const Footer = () => {
           <div className="flex gap-4">
             {[
               { icon: <DiscordIcon />, href: "https://discord.gg/ppa2xFmCHr" },
-              {
+              /* {
                 icon: <Twitter size={20} />,
                 href: "https://x.com/raiderspicks",
-              },
+              }, */
               {
                 icon: <Instagram size={20} />,
                 href: "https://www.instagram.com/raiders_____picks/",
