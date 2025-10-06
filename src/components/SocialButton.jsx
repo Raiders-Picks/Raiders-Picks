@@ -46,7 +46,7 @@ const SocialButton = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <ul className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Discord Button */}
               <motion.li className="relative group" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
                 <a
@@ -69,10 +69,10 @@ const SocialButton = () => {
                 </a>
               </motion.li>
 
-              {/* X Button */}
+              {/* X Button
               <motion.li className="relative group" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
                 <a
-                  href="https://x.com/smart__picks_?s=21"
+                  href=""
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-[#1e293b] hover:bg-[#0f172a] rounded-2xl p-8 transition-all duration-300 h-full shadow-lg shadow-gray-900/30"
@@ -88,7 +88,7 @@ const SocialButton = () => {
                     <p className="text-gray-200 sm:text-center">Follow our updates</p>
                   </div>
                 </a>
-              </motion.li>
+              </motion.li> */}
 
               {/* Instagram Button */}
               <motion.li className="relative group" whileHover={{ y: -10 }} transition={{ type: "spring", stiffness: 300 }}>
